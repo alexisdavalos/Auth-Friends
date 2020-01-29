@@ -1,10 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux';
+import {fetchFriends} from '../../actions';
 
-const FriendList = (props) =>{
+import Nav from '../Navbars/navbar'
+
+const FriendsList = (props) =>{
+  
+    useEffect(()=> {
+        props.fetchFriends();
+    }, [])
+    // props.fetchFriends();
     console.log('FriendList.js Props:', props)
     return(
         <div>
+            <Nav/>
             <p>{props.title}</p>
         </div>
     )
@@ -19,5 +28,5 @@ const mapStateToProps = state => {
 }
 export default connect(
     mapStateToProps,
-    {}
-)(FriendList);
+    {fetchFriends}
+)(FriendsList);
