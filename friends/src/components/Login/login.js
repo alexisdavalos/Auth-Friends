@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, {useState,useEffect} from 'react'
 import {connect} from 'react-redux';
 import {setToken} from '../../actions';
+import { FormGroup, Form, Input, Label, Button } from 'reactstrap';
 
-import Nav from '../Navbars/navbar';
+
+
 const Login = (props) =>{
     console.log('Login Props:', props)
     const initialState = {
@@ -39,22 +41,28 @@ const Login = (props) =>{
 
     return(
         <div>
-        <Nav/>
-        <form onSubmit={handleLogin}>
-          <input
-            type="text"
-            name="username"
-            value={login.credentials.username}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            value={login.credentials.password}
-            onChange={handleChange}
-          />
-          <button>Log in</button>
-        </form>
+        <div className='Title'>
+            <img width='500px' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Friends_logo.svg/1280px-Friends_logo.svg.png'/>
+        </div>
+      
+        <Form className='LoginForm' onSubmit={handleLogin}>
+            <Label>Username:</Label>
+            <Input
+                type="text"
+                name="username"
+                value={login.credentials.username}
+                onChange={handleChange}
+            />
+             <Label>Password</Label>
+            <Input
+                type="password"
+                name="password"
+                value={login.credentials.password}
+                onChange={handleChange}
+            />
+          <Button color='info'>Log in</Button>
+        </Form>
+    
       </div>
     )
 }
