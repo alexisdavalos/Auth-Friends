@@ -62,7 +62,9 @@ a{
       margin: 1%;
     }
     img{
-      height:250px;
+      object-fit: cover;
+      height: 250px;
+      object-position: center;
     }
   }
 }
