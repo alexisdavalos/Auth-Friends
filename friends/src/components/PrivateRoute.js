@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 // Requirements:
 // 1. It has the same API as <Route />. (same props as Route)
@@ -22,4 +23,16 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-export default PrivateRoute;
+const mapStateToProps = state => {
+  return{
+      title: state.title,
+      isLoading: state.isLoading,
+      isLogged: state.isLogged,
+      token: state.token,
+      friends: state.friends,
+      error: state.error
+  }
+}
+export default connect(
+  mapStateToProps
+)(PrivateRoute);

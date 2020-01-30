@@ -33,3 +33,17 @@
     transform: rotate(360deg);
   }
 }
+
+.FriendBox{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  .friend{
+    margin: 1%;
+    color:black;
+    button{
+      border-radius: 0;
+      margin: 1%;
+    }
+  }
+}

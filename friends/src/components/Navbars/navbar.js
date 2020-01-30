@@ -32,7 +32,7 @@ const Navigation = () => {
             </NavItem>
           </Nav>
           <NavLink href="/home">Login</NavLink>
-          <NavLink onClick={localStorage.clear()}href="/">Logout</NavLink>
+          <NavLink href="/">Logout</NavLink>
         </Collapse>
       </Navbar>
     </div>

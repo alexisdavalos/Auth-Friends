@@ -11,7 +11,8 @@ import {
     CREATE_FRIEND_FAILURE,
     DELETE_FRIEND_START,
     DELETE_FRIEND_SUCCESS,
-    DELETE_FRIEND_FAILURE
+    DELETE_FRIEND_FAILURE,
+    FETCH_FRIENDS_SUCCESS
 } from '../actions'
 
 const initialState = {
@@ -19,7 +20,7 @@ const initialState = {
     isLoading: false,
     isLogged: false,
     token:'',
-    friends: 'empty',
+    friends: '',
     error: ''
   };
   
@@ -28,13 +29,22 @@ const initialState = {
         case FETCH_FRIENDS_START:
             return {
                 ...state,
-                friends: action.payload
-            }
-        case LOGIN_START:
-            localStorage.setItem('token', action.payload)
+                isLoading: true,
+                isLogged: true
+            };
+        case FETCH_FRIENDS_SUCCESS:
             return {
                 ...state,
-                isLoading: true
+                isLoading:false,
+                isLogged:true,
+                friends: action.payload
+            }
+        case LOGIN_SUCCESS:
+            console.log('Token is:', action.payload)
+            return{
+                 ...state,
+                 token: action.payload,
+                 isLoading:false
             }
 
         default:

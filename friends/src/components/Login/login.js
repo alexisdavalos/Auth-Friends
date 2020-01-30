@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {useState,useEffect} from 'react'
 import {connect} from 'react-redux';
-import {requestLogin} from '../../actions';
+import {setToken} from '../../actions';
 
 import Nav from '../Navbars/navbar';
 const Login = (props) =>{
@@ -29,9 +29,9 @@ const Login = (props) =>{
         console.log('Loggin in....')
         axios.post('http://localhost:5000/api/login', login.credentials)
         .then(res => {
-        localStorage.setItem('token', res.data.payload)
-        props.history.push('/friends')
+        window.localStorage.setItem('token', res.data.payload)
         console.log('Logged in:', res)
+        props.history.push('/friends')
         })
       .catch(err => console.log(err));
        
@@ -62,11 +62,13 @@ const mapStateToProps = state => {
     return{
         title: state.title,
         isLoading: state.isLoading,
+        isLogged: state.isLogged,
+        token: state.token,
         friends: state.friends,
         error: state.error
     }
 }
 export default connect(
     mapStateToProps,
-    {requestLogin}
+    {setToken}
 )(Login);
