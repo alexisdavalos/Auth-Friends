@@ -1,3 +1,10 @@
+body{
+  background-color: #282c34;
+}
+a{
+  color:black;
+  font-weight: 600;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -11,7 +18,6 @@
 
 .App {
   background-color: #282c34;
-  min-height: 100vh;
   color: white;
   text-align: center;
   .App-header{
@@ -33,17 +39,36 @@
     transform: rotate(360deg);
   }
 }
-
+.Title{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  margin-top:5%;
+}
 .FriendBox{
   display:flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  margin-top:-5%;
+  padding:10%;
   .friend{
     margin: 1%;
     color:black;
+    width: 25%;
     button{
       border-radius: 0;
       margin: 1%;
     }
+    img{
+      height:250px;
+    }
   }
+}
+.Loading{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height:100vh;
 }

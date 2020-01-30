@@ -13,6 +13,7 @@ function App() {
       {/* <header className="App-header">
         <h1>Friends</h1>
       </header> */}
+      <Nav/>
       <Switch>
         <PrivateRoute 
         exact 

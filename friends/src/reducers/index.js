@@ -39,6 +39,17 @@ const initialState = {
                 isLogged:true,
                 friends: action.payload
             }
+        case DELETE_FRIEND_START:
+            return{
+                ...state,
+                isLoading:true
+            };
+        case DELETE_FRIEND_SUCCESS:
+            return{
+                ...state,
+                isLoading:true,
+                friends: action.payload
+            }
         case LOGIN_SUCCESS:
             console.log('Token is:', action.payload)
             return{
