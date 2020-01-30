@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Input, Label 
 
 const CreateFriendModal = ({ buttonLabel, className, editAFriend, friend, props}) =>{
     const [editFriend, setEditFriend] = useState(friend)
-    console.log('Edited Friend in EditFriendModal.js:', editFriend);
+    // console.log('Edited Friend in EditFriendModal.js:', editFriend);
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
     //handleSubmit

@@ -1,27 +1,26 @@
 import React, {useState} from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Input, Label } from 'reactstrap';
-
+import Loader from 'react-loader-spinner';
 const CreateFriendModal = ({ buttonLabel, className, createFriend}) =>{
     const [friend, setFriend] = useState({
-        id: '',
         name: '',
         age:  '',
         email: '',
         img_url: '',
     })
-    console.log(friend);
+    const [submitting, setSubmitting] = useState(false);
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
     //handleSubmit
     const handleSubmit = e => {
-        console.log('submitting friend..', friend)
+        console.log('selected friend..', friend)
         e.preventDefault();
-        setFriend({
-            ...friend,
-            id: Date.now()
-        })
-        createFriend(friend);
-        toggle();
+        // setFriend({...friend, id: Date.now()})
+        setSubmitting(true);
+        setTimeout(() => { createFriend({...friend, id: Date.now()}); toggle(); setSubmitting(false) }, 3000);
+        console.log('submitting friend...',friend)
+        
+        // toggle();
     }
     //handleCHanges
     const handleChanges = e => {
@@ -79,8 +78,21 @@ const CreateFriendModal = ({ buttonLabel, className, createFriend}) =>{
         </Form>
         </ModalBody>
         <ModalFooter>
-        <Button color="info" onClick={handleSubmit}>Add Friend</Button>{' '}
-        <Button color="secondary" onClick={toggle}>Cancel</Button>
+        {(submitting) ?
+            <div className='LoaderContainer'> 
+            <Loader
+                type="ThreeDots"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                />
+            </div> : 
+                <>
+                <Button color="info" onClick={handleSubmit}>Add Friend</Button>
+                <Button color="secondary" onClick={toggle}>Cancel</Button>
+                </>
+                }
+       
         </ModalFooter>
         </Modal>
         </>
