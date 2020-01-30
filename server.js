@@ -13,37 +13,43 @@ let friends = [
     id: 1,
     name: 'Rachel Green',
     age: 30,
-    email: 'rachel@friends.com'
+    email: 'rachel@friends.com',
+    img_url: 'https://www.tauntongazette.com/storyimage/ZZ/20190506/ENTERTAINMENT/305069932/AR/0/AR-305069932.jpg?MaxW=600'
   },
   {
     id: 2,
     name: 'Joey Tribbiani',
     age: 34,
-    email: 'joey@friends.com'
+    email: 'joey@friends.com',
+    img_url: 'https://cdn3.whatculture.com/images/2019/05/18c8a6d571330b00-600x338.jpg'
   },
   {
     id: 3,
     name: 'Chandler Bing',
     age: 32,
-    email: 'chandler@friends.com'
+    email: 'chandler@friends.com',
+    img_url: 'https://www.stylist.co.uk/images/app/uploads/2017/10/24195115/34fb7869e89b21c70d0662c6af04fb53-828x552.jpg?w=1200&h=1&fit=max&auto=format%2Ccompress'
   },
   {
     id: 4,
     name: 'Ross Geller',
     age: 32,
-    email: 'ross@friends.com'
+    email: 'ross@friends.com',
+    img_url:'https://vignette.wikia.nocookie.net/friends/images/9/9d/Ross_Unagi.jpg/revision/latest?cb=20190210055223'
   },
   {
     id: 5,
     name: 'Monica Bing',
     age: 31,
-    email: 'monica@friends.com'
+    email: 'monica@friends.com',
+    img_url: 'https://vignette.wikia.nocookie.net/friends/images/2/2f/Monica_Geller-Bing_Season_10.png/revision/latest?cb=20180426182234'
   },
   {
     id: 6,
     name: 'Phoebe Buffay-Hannigan',
     age: 30,
-    email: 'phoebe@friends.com'
+    email: 'phoebe@friends.com',
+    img_url: 'https://www.stylist.co.uk/images/app/uploads/2019/09/12102728/gettyimages-143479380.jpg?w=1200&h=1&fit=max&auto=format%2Ccompress'
   }
 ];
 
@@ -62,7 +68,7 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'Lambda School' && password === 'i<3Lambd4') {
+  if (username === 'test' && password === '1234') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
