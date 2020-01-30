@@ -8,13 +8,16 @@ const CreateFriendModal = ({ buttonLabel, className, editAFriend, friend, props}
     const toggle = () => setModal(!modal);
     //handleSubmit
     const handleSubmit = e => {
+        toggle()
+        const body = document.querySelector('body');
+        body.classList.remove('modal-open');
+        console.log('selected', body)
         console.log('submitting friend..', editFriend)
         e.preventDefault();
         setEditFriend({
             ...editFriend,
         })
         editAFriend(editFriend);
-        toggle();
     }
     //handleCHanges
     const handleChanges = e => {
@@ -72,7 +75,7 @@ const CreateFriendModal = ({ buttonLabel, className, editAFriend, friend, props}
         </Form>
         </ModalBody>
         <ModalFooter>
-        <Button color="info" onClick={handleSubmit}>Add Friend</Button>{' '}
+        <Button color="info" onClick={handleSubmit}>Edit Friend</Button>{' '}
         <Button color="secondary" onClick={toggle}>Cancel</Button>
         </ModalFooter>
         </Modal>
