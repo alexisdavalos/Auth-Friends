@@ -36,10 +36,10 @@ export const createFriend = (friend) => dispatch => {
     .catch(err => dispatch({ type: CREATE_FRIEND_FAILURE, payload: err }));
   };
 
-export const editFriend = (friend) => dispatch => {
+export const editAFriend = (friend) => dispatch => {
     dispatch({ type: EDIT_FRIEND_START });
     axiosWithAuth()
-    .post(`http://localhost:3333/FRIENDs`, friend)
+    .put(`/api/friends/${friend.id}`, friend)
     .then(res => dispatch({ type: EDIT_FRIEND_SUCCESS, payload: res.data })) 
     .catch(err => dispatch({ type: EDIT_FRIEND_FAILURE, payload: err }));
   };

@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
   } from 'reactstrap';
 import {connect} from 'react-redux';
-import {editFriend, deleteFriend} from '../../actions'
+import {editAFriend, deleteFriend} from '../../actions'
+import EditFriendModal from '../EditFriendModal/EditFriendModal'
 const Friend = (props) => {
     const handleDelete = e => {
         e.preventDefault();
@@ -18,7 +19,7 @@ const Friend = (props) => {
         <CardTitle><b>{props.friend.name}</b></CardTitle>
         <CardSubtitle><b>Age</b>: {props.friend.age}</CardSubtitle>
         <CardText><b>Email:</b> {props.friend.email}</CardText>
-        <Button color='info' className='edit'>Edit</Button><Button color='danger' onClick={(e) => handleDelete(e)} className='delete'>Delete</Button>
+        <EditFriendModal friend={props.friend} editAFriend ={props.editAFriend} props={props}/><Button color='danger' onClick={(e) => handleDelete(e)} className='delete'>Delete</Button>
         </CardBody>
       </Card>
         
@@ -37,5 +38,5 @@ const mapStateToProps = state => {
 }
 export default connect(
     mapStateToProps,
-    {deleteFriend, editFriend}
+    {deleteFriend, editAFriend}
 )(Friend);
