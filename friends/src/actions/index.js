@@ -31,7 +31,7 @@ export const fetchFriends = () => dispatch => {
 export const createFriend = (friend) => dispatch => {
     dispatch({ type: CREATE_FRIEND_START });
     axiosWithAuth()
-    .post(`http://localhost:3333/FRIENDs`, friend)
+    .post(`/api/friends`, friend)
     .then(res => dispatch({ type: CREATE_FRIEND_SUCCESS, payload: res.data })) 
     .catch(err => dispatch({ type: CREATE_FRIEND_FAILURE, payload: err }));
   };

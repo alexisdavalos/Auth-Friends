@@ -26,6 +26,25 @@ const initialState = {
   
   export const friendReducer = (state = initialState, action) => {
     switch (action.type) {
+        case CREATE_FRIEND_START:
+            return {
+                ...state,
+                isLoading: true
+            };
+        case CREATE_FRIEND_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                friends: action.payload
+                
+            };
+        case CREATE_FRIEND_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload
+                
+            };
         case FETCH_FRIENDS_START:
             return {
                 ...state,
